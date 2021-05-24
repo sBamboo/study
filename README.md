@@ -1,3 +1,2 @@
 # study
-学習用のリポジトリ<br>
-主にSwiftUI,Java
+主に備忘として用いる
