@@ -1,0 +1,24 @@
+;=====================================================================
+;2021/05/24 作成
+; 接続情報
+inputbox '接続先' '接続先IPアドレス'
+HOSTADDR =inputstr 
+USERNAME = 'userName'
+PASSWORD = 'password'
+;=====================================================================
+
+; コマンドオプション組立て
+COMMAND = HOSTADDR
+strconcat COMMAND ':22 /ssh /2 /auth=password /user='
+strconcat COMMAND USERNAME
+strconcat COMMAND ' /passwd='
+strconcat COMMAND PASSWORD
+
+; 接続
+connect COMMAND
+
+wait 'vagrant@'
+sendln 'su'
+wait '# '
+sendln 'root password'
+end
